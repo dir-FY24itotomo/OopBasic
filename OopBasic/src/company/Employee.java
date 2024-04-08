@@ -3,10 +3,10 @@ package company;
 import javax.management.loading.PrivateClassLoader;
 import javax.xml.stream.XMLReporter;
 
-public class Employee {
+public abstract class Employee implements Workable {
     // field
     protected final String name;
-    private final Department department;
+    protected final Department department;
     private final String position;
     private final int employeeId;
 
@@ -28,9 +28,17 @@ public class Employee {
         report(1);
     }
     
+    public abstract void joinMeeting();
+    /*
     public void joinMeeting() {
         department.meeting();
         System.out.println("I attend above meeting, Dep : " + department.getName() + "Name : " + name);
+    }
+    */
+    
+    @Override
+    public void work() {
+        System.out.println("i'm regular employee"+ name + slogan);
     }
     
 }
